@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="media/logo.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+                fontFamily: {
+                    'dmsans': ['DM Sans', 'sans-serif']
+                },
+                colors: {
+                    'white': '#F1F1F1',
+                    'primary': '#2AA17D',
+                    'black': '#222222',
+                }
+            }
+          }
+        }
+      </script>
+    <title>Winnable</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+        html, body{
+            scroll-behavior: smooth !important;
+        }
+        .box {
+            overflow: hidden;
+            width: 400px;
+            height: 400px;
+            display:inline-block;
+            }
+
+            .triangle {
+            width: 100%;
+            height: 100%;
+            transform: skewX(-20deg) skewY(45deg);
+            transform-origin: bottom left;
+            overflow: hidden;
+            background-size:0 0;
+            }
+            .triangle.bottom {
+            transform-origin: top right;
+            }
+
+            .triangle:before {
+            content: "";
+            display: block;
+            width: inherit;
+            height: inherit;
+            background-image: inherit;
+            background-size:cover;
+            background-position:center;
+            transform: skewY(-45deg) skewX(20deg);
+            transform-origin: inherit;
+            }
+
+            .adjust {
+            margin-left:-240px;
+            }
+
+            @media screen and (max-width: 768px) {
+            .box {
+                display: none;
+            }
+
+            @media screen and (min-width: 640px) {
+                #mobileMenu {
+                    display: none;
+                }
+            }
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <header class="bg-white fixed text-primary p-4 w-full shadow-xl z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#home" class="flex gap-3 items-center">
+                <img src="media/logo.png" alt="Winnable Logo" class="h-12">
+                <h1 class="font-dmsans font-semibold text-3xl">Winnable</h1>
+            </a>
+            <nav id="navMenu">
+                <ul class="hidden lg:flex space-x-5 items-center" id="navLinks">
+                    <li><a href="#home" class="font-dmsans border-b border-transparent hover:border-primary transition-all duration-200">Home</a></li>
+                    <li><a href="#about" class="font-dmsans border-b border-transparent hover:border-primary transition-all duration-200">About</a></li>
+                    <li><a href="#services" class="font-dmsans border-b border-transparent hover:border-primary transition-all duration-200">Services</a></li>
+                    <li><a href="#gallery" class="font-dmsans border-b border-transparent hover:border-primary transition-all duration-200">Gallery</a></li>
+                    <li><a href="#contact" class="font-dmsans border-b border-transparent hover:border-primary transition-all duration-200">Contact</a></li>
+                </ul>
+            </nav>
+            <button id="mobileMenuBtn" class="block lg:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="mobileMenu" class="hidden bg-white w-full px-4 py-2">
+            <ul class="flex flex-col space-y-3 items-center" id="mobileNavLinks">
+                <li><a href="#home" onclick="closeMobileMenu()" class="font-dmsans border-b border-transparent hover:border-primary transition-all duration-200">Home</a></li>
+                <li><a href="#about" onclick="closeMobileMenu()" class="font-dmsans border-b border-transparent hover:border-primary transition-all duration-200">About</a></li>
+                <li><a href="#services" onclick="closeMobileMenu()" class="font-dmsans border-b border-transparent hover:border-primary transition-all duration-200">Services</a></li>
+                <li><a href="#gallery" onclick="closeMobileMenu()" class="font-dmsans border-b border-transparent hover:border-primary transition-all duration-200">Gallery</a></li>
+                <li><a href="#contact" onclick="closeMobileMenu()" class="font-dmsans border-b border-transparent hover:border-primary transition-all duration-200">Contact</a></li>
+            </ul>
+        </div>
+    </header>  
+    <section id="home" class="bg-primary text-white lg:overflow-hidden">
+        <div class="container mx-auto flex justify-between items-center p-10 pt-28 lg:p-0 lg:pt-20">
+            <div class="lg:w-1/3">
+                <h1 class="font-dmsans font-bold text-5xl">Turning chance into choice.</h1>
+                <p class="font-dmsans text-lg my-5">Winnable is dedicated to helping individuals overcome ludopathy and regain control of their lives.</p>
+                <a href="#contact" class="font-dmsans bg-transparent border border-white text-white px-5 py-2 rounded-lg hover:bg-white hover:text-primary transition-all duration-200">Get Started</a>
+            </div>
+            <div class="lg:w-2/3 relative hidden lg:flex">
+                <div class="w-4/5 flex">
+                    <div class="box">
+                        <div class="triangle" style="background-image:url(media/section4.jpg)"></div>
+                    </div>                  
+                    <div class="box adjust">
+                        <div class="triangle bottom" style="background-image:url(media/section3.jpg)"></div>
+                    </div>
+                </div>
+                <div class="w-4/5 absolute flex" style="left: 41.75%;">
+                    <div class="box">
+                        <div class="triangle" style="background-image:url(media/section1.jpg)"></div>
+                    </div>                  
+                    <div class="box adjust">
+                        <div class="triangle bottom" style="background-image:url(media/section2.jpg)"></div>
+                    </div>
+                </div>
+                <div class="w-4/5 absolute flex" style="left: 83.5%;">
+                    <div class="box">
+                        <div class="triangle" style="background-image:url(media/section5.jpg)"></div>
+                    </div>                  
+                    <div class="box adjust">
+                        <div class="triangle bottom" style="background-image:url(media/section6.jpg)"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="about" class="bg-white text-black lg:h-screen flex flex-col items-center justify-center">
+        <div class="container mx-auto flex flex-col justify-between items-left px-10 py-28 lg:px-0 lg:py-40">
+            <h3 class="font-dmsans font-bold text-5xl">Who we <span class="text-primary">are</span></h3>
+            <p class="font-dmsans text-lg mt-5">Winnable is a ludopathy association committed to providing support, resources, and guidance to individuals struggling with ludopathy and their families.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 text-white">
+                <div class="bg-primary p-5 rounded-lg">
+                    <img src="media/mission1.svg" alt="Mission 1" class="w-32">
+                    <h4 class="font-dmsans font-bold text-2xl mt-5">Our Mission</h4>
+                    <p class="font-dmsans text-lg mt-5">Our mission is to empower individuals affected by ludopathy to overcome their addiction and lead fulfilling lives.</p>
+                </div>
+                <div class="bg-primary p-5 rounded-lg">
+                    <img src="media/mission2.svg" alt="Mission 1" class="w-32">
+                    <h4 class="font-dmsans font-bold text-2xl mt-5">Our Vision</h4>
+                    <p class="font-dmsans text-lg mt-5">Our vision is a world where ludopathy is understood, treated, and ultimately eradicated, allowing individuals and families to thrive.</p>
+                </div>
+                <div class="bg-primary p-5 rounded-lg">
+                    <img src="media/mission3.svg" alt="Mission 1" class="w-32">
+                    <h4 class="font-dmsans font-bold text-2xl mt-5">Our Values</h4>
+                    <p class="font-dmsans text-lg mt-5">Our values guide everything we do, from providing compassionate support to advocating for awareness and understanding of ludopathy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="services" class="bg-primary text-white lg:h-screen flex flex-col items-center justify-center">
+        <div class="container mx-auto flex flex-col justify-between items-left px-10 py-28 lg:px-0 lg:py-40">
+            <h3 class="font-dmsans font-bold text-5xl">What we <span class="text-black">offer</span></h3>
+            <p class="font-dmsans text-lg mt-5">Winnable offers a range of services tailored to meet the unique needs of individuals affected by ludopathy.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 text-black">
+                <div class="bg-white p-5 rounded-lg">
+                    <h4 class="font-dmsans font-bold text-2xl">Individual Counseling</h4>
+                    <p class="font-dmsans text-lg mt-5">Our licensed therapists provide one-on-one counseling to help individuals address the underlying issues contributing to their ludopathy.</p>
+                </div>
+                <div class="bg-white p-5 rounded-lg">
+                    <h4 class="font-dmsans font-bold text-2xl">ჯგუფური თერაპია</h4>
+                    <p class="font-dmsans text-lg mt-5">ჩვენ გთავაზობთ ჯგუფური თერაპიის სესიებს, სადაც ინდივიდებს შეუძლიათ დაუკავშირდნენ სხვებს მსგავსი გამოწვევების წინაშე, გაუზიარონ გამოცდილება და ისწავლონ ერთმანეთისგან.</p>
+                </div>
+                <div class="bg-white p-5 rounded-lg">
+                    <h4 class="font-dmsans font-bold text-2xl">Suport familiar</h4>
+                    <p class="font-dmsans text-lg mt-5">Donem suport i orientació a les famílies afectades per la ludopatia, ajudant-les a entendre l'addicció i desenvolupar estratègies d'afrontament saludables.</p>
+                </div>
+                <div class="bg-white p-5 rounded-lg">
+                    <h4 class="font-dmsans font-bold text-2xl">Online Counseling Sessions</h4>
+                    <p class="font-dmsans text-lg mt-5">Our online counseling sessions provide a convenient and accessible way for individuals to receive support from licensed therapists. Through secure video conferencing, individuals can address their ludopathy issues from the comfort of their own home.</p>
+                </div>
+                <div class="bg-white p-5 rounded-lg">
+                    <h4 class="font-dmsans font-bold text-2xl">Educational Workshops</h4>
+                    <p class="font-dmsans text-lg mt-5">We organize educational workshops focused on raising awareness about ludopathy and providing practical strategies for prevention and intervention. These workshops are designed for individuals, families, and communities to learn more about the impact of ludopathy.</p>
+                </div>
+                <div class="bg-white p-5 rounded-lg">
+                    <h4 class="font-dmsans font-bold text-2xl">アフターケアサポートプログラム</h4>
+                    <p class="font-dmsans text-lg mt-5">当社のアフターケア サポート プログラムは、視力障害の初期治療を完了した個人に継続的な支援を提供します。サポートグループ、フォローアップカウンセリング、個別の計画を通じて、私たちは個人の回復を維持し、再発を防ぐのを支援します。</p>
+                </div>                
+            </div>
+        </div>
+    </section>
+    <section id="gallery" class="bg-white text-black lg:h-screen flex flex-col items-center justify-center">
+        <div class="container mx-auto flex flex-col justify-between items-left px-10 py-28 lg:px-0 lg:py-40">
+            <h3 class="font-dmsans font-bold text-5xl">Our <span class="text-primary">Gallery</span></h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 mt-10">
+                <div class="overflow-hidden group" style="height: 300px;">
+                    <img src="media/section5.jpg" alt="Section 1" class="object-cover grayscale group-hover:scale-110 hover:grayscale-0 transition-all duration-200 w-full h-full">
+                </div>
+                <div class="overflow-hidden group" style="height: 300px;">
+                    <img src="media/section2.jpg" alt="Section 2" class="object-cover grayscale group-hover:scale-110 hover:grayscale-0 transition-all duration-200 w-full h-full">
+                </div>
+                <div class="overflow-hidden group" style="height: 300px;">
+                    <img src="media/section3.jpg" alt="Section 3" class="object-cover grayscale group-hover:scale-110 hover:grayscale-0 transition-all duration-200 w-full h-full">
+                </div>
+                <div class="overflow-hidden group" style="height: 300px;">
+                    <img src="media/section4.jpg" alt="Section 4" class="object-cover grayscale group-hover:scale-110 hover:grayscale-0 transition-all duration-200 w-full h-full">
+                </div>
+                <div class="overflow-hidden group" style="height: 300px;">
+                    <img src="media/section6.jpg" alt="Section 5" class="object-cover grayscale group-hover:scale-110 hover:grayscale-0 transition-all duration-200 w-full h-full">
+                </div>
+                <div class="overflow-hidden group" style="height: 300px;">
+                    <img src="media/section1.jpg" alt="Section 6" class="object-cover grayscale group-hover:scale-110 hover:grayscale-0 transition-all duration-200 w-full h-full">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="bg-primary text-white lg:h-screen flex flex-col items-center justify-center">
+        <div class="container mx-auto flex flex-col justify-between items-left px-10 py-28 lg:px-0 lg:py-40">
+            <h3 class="font-dmsans font-bold text-5xl">Contact <span class="text-black">Us</span></h3>
+            <p class="font-dmsans text-lg mt-5">If you or someone you know is struggling with ludopathy, please reach out to us for support and guidance.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 text-black">
+                <div class="bg-white p-5 rounded-lg">
+                    <h4 class="font-dmsans font-bold text-2xl">Address</h4>
+                    <p class="font-dmsans text-lg mt-5">3 Chu Lin Rd, Singapur 669890</p>
+                </div>
+                <div class="bg-white p-5 rounded-lg">
+                    <h4 class="font-dmsans font-bold text-2xl">Phone</h4>
+                    <p class="font-dmsans text-lg mt-5">+6567603534</p>
+                </div>
+                <div class="bg-white p-5 rounded-lg">
+                    <h4 class="font-dmsans font-bold text-2xl">Email</h4>
+                    <p class="font-dmsans text-lg mt-5">info@winnable.org</p>
+                </div>
+            </div>
+            <div class="flex flex-col lg:flex-row gap-5 mt-5 lg:mt-10">
+                <div class="w-full lg:w-1/2">
+                    <iframe class="w-full h-full rounded-lg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1185.846809605737!2d103.75903728768864!3d1.3582294816275906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da104ec0b0d5b5%3A0x4757f59c4df4fe5f!2sChu%20Yen%20Playground!5e0!3m2!1ses!2ses!4v1715442393313!5m2!1ses!2ses" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="w-full lg:w-1/2">
+                    <form action="" class="">
+                        <div class="flex gap-5">
+                            <input type="text" class="font-dmsans w-1/2 p-3 h-12 rounded-lg" placeholder="Name">
+                            <input type="email" class="font-dmsans w-1/2 p-3 h-12 rounded-lg" placeholder="Email">
+                        </div>
+                        <textarea name="" id="" cols="30" rows="5" class="font-dmsans w-full p-3 rounded-lg mt-5" placeholder="Message"></textarea>
+                        <button class="font-dmsans bg-white text-primary px-5 py-2 mt-5 rounded-lg">Send</button>
+                    </form>
+                </div>                
+            </div>
+        </div>
+    </section>
+    <footer class="bg-black text-white">
+        <div class="container mx-auto flex flex-col lg:flex-row lg:justify-between items-center py-10">
+            <div class="flex gap-14">
+                <ul class="list-disc">
+                    <li><a href="#home" class="font-dmsans border-b border-transparent hover:border-white transition-all duration-200">Home</a></li>
+                    <li><a href="#about" class="font-dmsans border-b border-transparent hover:border-white transition-all duration-200">About</a></li>
+                </ul>
+                <ul class="list-disc">
+                    <li><a href="#services" class="font-dmsans border-b border-transparent hover:border-white transition-all duration-200">Services</a></li>
+                    <li><a href="#gallery" class="font-dmsans border-b border-transparent hover:border-white transition-all duration-200">Gallery</a></li>
+                </ul>
+                <ul class="list-disc">
+                    <li><a href="#contact" class="font-dmsans border-b border-transparent hover:border-white transition-all duration-200">Contact</a></li>
+                </ul>
+            </div>
+            <div class="text-center mt-5 lg:mt-0 lg:text-right">
+                <p class="font-dmsans mb-3">© 2021 Winnable. All rights reserved.</p>
+                <a href="#home" class="font-dmsans bg-transparent border border-white text-white px-5 py-2 rounded-lg hover:bg-white hover:text-primary transition-all duration-200">Scroll to Top</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            var mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        function closeMobileMenu() {
+            var mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
